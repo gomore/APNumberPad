@@ -201,7 +201,7 @@
 
     UIResponder<UITextInput> *textInput = notification.object;
 
-    if (textInput.inputView && self == textInput.inputView) {
+    if (textInput.inputView && (self == textInput.inputView || self == textInput.inputView.subviews.firstObject)) {
         self.textInput = textInput;
 
         _delegateFlags.textInputSupportsShouldChangeTextInRange = NO;
