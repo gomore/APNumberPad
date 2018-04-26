@@ -64,10 +64,9 @@
 }
 
 - (instancetype)initWithDelegate:(id<APNumberPadDelegate>)delegate numberPadStyleClass:(Class)styleClass {
-    self = [super initWithFrame:CGRectZero];
+    self = [super initWithFrame:[self.styleClass numberPadFrame]];
     if (self) {
         self.styleClass = styleClass;
-        self.frame = [self.styleClass numberPadFrame];
         self.autoresizingMask = UIViewAutoresizingFlexibleHeight; // for support rotation
         self.backgroundColor = [self.styleClass numberPadBackgroundColor];
 
@@ -140,7 +139,7 @@
 
     // Number buttons (1-9)
     //
-    for (int i = 1; i < self.numberButtons.count - 1; i++) {
+    for (int i = 1; i < MIN(1, self.numberButtons.count - 1); i++) {
         APNumberButton *numberButton = self.numberButtons[i];
         numberButton.frame = CGRectMake(left, top, buttonSize.width, buttonSize.height);
 
