@@ -139,16 +139,18 @@
 
     // Number buttons (1-9)
     //
-    for (int i = 1; i < MIN(1, self.numberButtons.count - 1); i++) {
-        APNumberButton *numberButton = self.numberButtons[i];
-        numberButton.frame = CGRectMake(left, top, buttonSize.width, buttonSize.height);
+    if (self.numberButtons.count > 0) {
+        for (int i = 1; i < self.numberButtons.count - 1; i++) {
+            APNumberButton *numberButton = self.numberButtons[i];
+            numberButton.frame = CGRectMake(left, top, buttonSize.width, buttonSize.height);
 
-        if (i % sections == 0) {
-            left = (CGRectGetWidth(self.bounds) - maximumWidth) / 2;
-            top += buttonSize.height + sep;
-        }
-        else {
-            left += buttonSize.width + sep;
+            if (i % sections == 0) {
+                left = (CGRectGetWidth(self.bounds) - maximumWidth) / 2;
+                top += buttonSize.height + sep;
+            }
+            else {
+                left += buttonSize.width + sep;
+            }
         }
     }
 
