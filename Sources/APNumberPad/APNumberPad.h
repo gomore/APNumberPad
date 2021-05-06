@@ -9,6 +9,8 @@
 
 #import "APNumberPadStyle.h"
 #import "APNumberPadDefaultStyle.h"
+#import "APNumberButton.h"
+#import "NSBundle+APNumberPad.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
